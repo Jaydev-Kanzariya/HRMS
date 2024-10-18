@@ -95,7 +95,7 @@ if (isset($_POST['selected_date'])) {
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-body">
+                                <div class="card-body mb-5">
                                     <form action="" method="POST" class="mb-4">
                                         <div class="form-group">
                                             <label for="selected_date">Select Date:</label>
@@ -103,7 +103,7 @@ if (isset($_POST['selected_date'])) {
                                         </div>
                                         <input type="submit" value="Show Attendance" class="btn btn-primary">
                                     </form>
-                                    <table class="table table-bordered table-striped">
+                                    <table class="table table-bordered table-striped table-responsive">
                                         <thead>
                                             <tr>
                                                 <th>No.</th> <!-- Added header for numbering -->

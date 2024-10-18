@@ -103,45 +103,47 @@ $result = $conn->query($sql);
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-body">
+                                <div class="card-body mb-5">
                                     <form action="" method="POST" class="text-center">
-                                        <table class="table table-bordered table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>No.</th>    
-                                                    <th>Employee Name</th>
-                                                    <th>Start Date</th>
-                                                    <th>End Date</th>
-                                                    <th>Reason</th>
-                                                    <th>Status</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php $count = 1; while ($row = $result->fetch_assoc()): ?>
-                                                <tr>
-                                                    <td><?= $count++ ?></td>
-                                                    <td><?= htmlspecialchars($row['name']) ?></td>
-                                                    <td><?= htmlspecialchars($row['start_date']) ?></td>
-                                                    <td><?= htmlspecialchars($row['end_date']) ?></td>
-                                                    <td><?= htmlspecialchars($row['reason']) ?></td>
-                                                    <td><?= htmlspecialchars($row['status']) ?></td>
-                                                    <td>
-                                                        <form action='process_leave.php' method='POST'>
-                                                            <input type='hidden' name='leave_id'
-                                                                value='<?= htmlspecialchars($row['id']) ?>'>
-                                                            <select name='status' required>
-                                                                <option value='Approved'>Approve</option>
-                                                                <option value='Rejected'>Reject</option>
-                                                            </select>
-                                                            <input type='submit' value='Update Status'
-                                                                class="btn btn-primary">
-                                                        </form>
-                                                    </td>
-                                                </tr>
-                                                <?php endwhile; ?>
-                                            </tbody>
-                                        </table>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>No.</th>
+                                                        <th>Employee Name</th>
+                                                        <th>Start Date</th>
+                                                        <th>End Date</th>
+                                                        <th>Reason</th>
+                                                        <th>Status</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php $count = 1; while ($row = $result->fetch_assoc()): ?>
+                                                    <tr>
+                                                        <td><?= $count++ ?></td>
+                                                        <td><?= htmlspecialchars($row['name']) ?></td>
+                                                        <td><?= htmlspecialchars($row['start_date']) ?></td>
+                                                        <td><?= htmlspecialchars($row['end_date']) ?></td>
+                                                        <td><?= htmlspecialchars($row['reason']) ?></td>
+                                                        <td><?= htmlspecialchars($row['status']) ?></td>
+                                                        <td>
+                                                            <form action='process_leave.php' method='POST'>
+                                                                <input type='hidden' name='leave_id'
+                                                                    value='<?= htmlspecialchars($row['id']) ?>'>
+                                                                <select name='status' required>
+                                                                    <option value='Approved'>Approve</option>
+                                                                    <option value='Rejected'>Reject</option>
+                                                                </select>
+                                                                <input type='submit' value='Update Status'
+                                                                    class="btn btn-primary">
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                    <?php endwhile; ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </form>
                                 </div>
                             </div>

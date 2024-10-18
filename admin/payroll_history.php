@@ -80,28 +80,31 @@ $result = $conn->query($sql);
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-body">
+                                <div class="card-body mb-5">
                                     <form action="" method="POST" class="text-center">
-                                        <table class="table table-bordered table-striped">
-                                            <thead>
-                                            <tr>
-                                                <th>No.</th>    
-                                                <th>Employee Name</th>
-                                                <th>Month</th>
-                                                <th>Salary</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php $count = 1; while ($row = $result->fetch_assoc()):  ?>
-                                                <tr>
-                                                    <td><?= $count++ ?></td>
-                                                    <td><?= htmlspecialchars($row['name']) ?></td>
-                                                    <td><?= htmlspecialchars($row['month']) ?></td>
-                                                    <td><?= htmlspecialchars(number_format($row['salary'], 2)) ?></td>
-                                                </tr>
-                                                <?php endwhile; ?>
-                                            </tbody>
-                                        </table>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>No.</th>
+                                                        <th>Employee Name</th>
+                                                        <th>Month</th>
+                                                        <th>Salary</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php $count = 1; while ($row = $result->fetch_assoc()):  ?>
+                                                    <tr>
+                                                        <td><?= $count++ ?></td>
+                                                        <td><?= htmlspecialchars($row['name']) ?></td>
+                                                        <td><?= htmlspecialchars($row['month']) ?></td>
+                                                        <td><?= htmlspecialchars(number_format($row['salary'], 2)) ?>
+                                                        </td>
+                                                    </tr>
+                                                    <?php endwhile; ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </form>
                                 </div>
                             </div>

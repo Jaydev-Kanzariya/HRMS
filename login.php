@@ -29,7 +29,7 @@ if(isset($_POST['login'])){
       $row = mysqli_fetch_assoc($result);
       $_SESSION['login'] = true;
       $_SESSION['user_email'] = $row['email']; 
-      $_SESSION['user_email1'] = $row['email']; 
+      $_SESSION['user_email1'] = $row['email'];   
 
       if ($remeberme) {
         // Checkbox is checked

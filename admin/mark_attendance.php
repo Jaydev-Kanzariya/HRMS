@@ -102,51 +102,56 @@ $result = mysqli_query($conn, $sql);
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-body">
+                                <div class="card-body mb-5">
                                     <form action="" method="POST" class="text-center">
-                                        <div class="row">
-                                            <div class="col-3">
+                                        <div class="row mb-3">
+                                            <div class="col-md-3">
                                                 <label for="date">Date:</label>
-                                                <input type="date" name="date" required min="<?php echo date('Y-m-d'); ?>" required><br><br>
+                                                <input type="date" name="date" class="form-control" required
+                                                    min="<?php echo date('Y-m-d'); ?>">
                                             </div>
                                         </div>
-                                        <table class="table table-bordered table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>No.</th>
-                                                    <th>Employee ID</th>
-                                                    <th>Employee Name</th>
-                                                    <th>Attendance Status</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php 
-                                                    $count = 1; 
-                                                    while ($row = $result->fetch_assoc()): ?>
-                                                <tr>
-                                                    <td><?= $count++ ?></td>
-                                                    <td><?= htmlspecialchars($row['id']) ?></td>
-                                                    <td><?= htmlspecialchars($row['name']) ?></td>
-                                                    <td>
-                                                        <div>
-                                                            <input type="radio" id="present_<?= $row['id'] ?>"
-                                                                name="attendance[<?= $row['id'] ?>]" value="present"
-                                                                required checked>
-                                                            <label for="present_<?= $row['id'] ?>">Present</label>&nbsp;
-                                                            <input type="radio" id="absent_<?= $row['id'] ?>"
-                                                                name="attendance[<?= $row['id'] ?>]" value="absent">
-                                                            <label for="absent_<?= $row['id'] ?>">Absent</label>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <?php endwhile; ?>
-                                            </tbody>
-                                        </table>
-
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>No.</th>
+                                                        <th>Employee ID</th>
+                                                        <th>Employee Name</th>
+                                                        <th>Attendance Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php 
+                                                        $count = 1; 
+                                                        while ($row = $result->fetch_assoc()): ?>
+                                                    <tr>
+                                                        <td><?= $count++ ?></td>
+                                                        <td><?= htmlspecialchars($row['id']) ?></td>
+                                                        <td><?= htmlspecialchars($row['name']) ?></td>
+                                                        <td>
+                                                            <div>
+                                                                <input type="radio" id="present_<?= $row['id'] ?>"
+                                                                    name="attendance[<?= $row['id'] ?>]" value="present"
+                                                                    required checked>
+                                                                <label
+                                                                    for="present_<?= $row['id'] ?>">Present</label>&nbsp;
+                                                                <input type="radio" id="absent_<?= $row['id'] ?>"
+                                                                    name="attendance[<?= $row['id'] ?>]" value="absent">
+                                                                <label for="absent_<?= $row['id'] ?>">Absent</label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <?php endwhile; ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                         <br>
-                                        <input type="submit" value="Submit Attendance" class="btn btn-primary">
+                                        <input type="submit" value="Submit Attendance"
+                                            class="btn btn-primary">
                                     </form>
                                 </div>
+
                             </div>
                         </div>
                     </div>
